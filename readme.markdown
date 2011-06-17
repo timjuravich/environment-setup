@@ -1,0 +1,2 @@
+## What is this?
+This is a quick library to setup and configuration a Mac OS X machine to use Apache, PHP, and enable mod_rewrite. It contains verification steps along the way to make sure the developer knows what's going on.

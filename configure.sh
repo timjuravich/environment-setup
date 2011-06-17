@@ -44,4 +44,23 @@ sudo sed -i '' 's/AllowOverride None/AllowOverride All/g' /etc/apache2/httpd.con
 notify "Restarting Apache"
 sudo apachectl restart
 
+notify "Installing Homebrew"
+sudo mkdir -p /usr/local
+sudo chown -R $USER /usr/local
+curl -Lf http://github.com/timjuravich/homebrew/tarball/master | tar xz --strip 1 -C/usr/local
+
+notify "Installing CouchDB. Will take a while"
+brew install couchdb -v
+
+notify "Starting CouchDB in the background"
+couchdb -b
+
+notify "Attempting to hit CouchDB with curl"
+curl http://127.0.0.1:5984/
+wait "Make sure the script responded properly with a couchdb welcome"
+
+notify "Installing Git"
+brew install git -v
+
+
 notify "Configuration Complete!"

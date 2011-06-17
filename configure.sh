@@ -2,13 +2,13 @@
 
 notify()
 {
-    echo "\033[0;32m$1\033[0m"
+  echo "\033[0;32m$1\033[0m"
 }
 
 wait()
 {
-	echo "\033[0;31m$1\033[0m"
-	read -p "When finished hit enter to continue..."
+  echo "\033[0;31m$1\033[0m"
+  read -p "When finished hit enter to continue..."
 }
 
 notify "Showing hidden files in Finder"
@@ -61,6 +61,5 @@ wait "Make sure the script responded properly with a couchdb welcome"
 
 notify "Installing Git"
 brew install git -v
-
 
 notify "Configuration Complete!"

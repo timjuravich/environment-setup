@@ -21,7 +21,7 @@ sudo apachectl start
 wait "Verify it started or is running"
 
 notify "Opening Browser"
-python -mwebbrowser http://localhost
+open http://localhost
 wait "Verify that the page says It works!"
 
 notify "Checking PHP Version"
@@ -34,8 +34,8 @@ sudo sed -i '' 's/#LoadModule php5_module/LoadModule php5_module/g' /etc/apache2
 
 notify "Creating phpinfo(); page"
 echo "<?php phpinfo(); ?>" > /Library/WebServer/Documents/info.php
-sleep 5
-python -mwebbrowser http://localhost/info.php
+sleep 3
+open http://localhost/info.php
 wait "Check to make sure the info.php page works"
 
 notify "Configuring Apache mod_rewrite"
@@ -55,7 +55,7 @@ brew install couchdb -v
 
 notify "Starting CouchDB in the background"
 couchdb -b
-sleep 5
+sleep 3
 
 notify "Attempting to hit CouchDB with curl"
 curl http://127.0.0.1:5984/

@@ -34,6 +34,7 @@ sudo sed -i '' 's/#LoadModule php5_module/LoadModule php5_module/g' /etc/apache2
 
 notify "Creating phpinfo(); page"
 echo "<?php phpinfo(); ?>" > /Library/WebServer/Documents/info.php
+sleep 5
 python -mwebbrowser http://localhost/info.php
 wait "Check to make sure the info.php page works"
 
@@ -54,6 +55,7 @@ brew install couchdb -v
 
 notify "Starting CouchDB in the background"
 couchdb -b
+sleep 5
 
 notify "Attempting to hit CouchDB with curl"
 curl http://127.0.0.1:5984/

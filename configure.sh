@@ -64,4 +64,12 @@ wait "Make sure the script responded properly with a couchdb welcome"
 notify "Installing Git"
 brew install git -v
 
+notify "Killing CouchDB in the background"
+couchdb -k
+sleep 3
+
+notify "Add CouchDB with launchctl"
+launchctl load -w /usr/local/Cellar/couchdb/1.0.2/Library/LaunchDaemons/org.apache.couchdb.plist
+sleep 3
+
 notify "Configuration Complete!"
